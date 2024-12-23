@@ -1,0 +1,17 @@
+initial_units: 192
+num_layers: 1
+units_0: 1376
+dropout_0: 0.2
+optimizer: adam
+learning_rate: 0.006337471468379436
+units_1: 2016
+dropout_1: 0.1
+units_2: 1024
+dropout_2: 0.1
+units_3: 896
+dropout_3: 0.1
+tuner/epochs: 30
+tuner/initial_epoch: 10
+tuner/bracket: 2
+tuner/round: 2
+tuner/trial_id: 0068
