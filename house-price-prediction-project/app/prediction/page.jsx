@@ -15,6 +15,7 @@ import { Home, Building, Car, Bath, Bed, Maximize, MapPin } from "lucide-react";
 
 const PropertyPricePredictor = () => {
   // State definitions
+  const [totalPriceRange, setTotalPriceRange] = useState(null);
   const [selectedState, setSelectedState] = useState("");
   const [formData, setFormData] = useState({
     District: "",
@@ -450,6 +451,7 @@ const PropertyPricePredictor = () => {
         "Furnished Type": FURNISHED_TYPES.indexOf(formData["Furnished Type"]),
       };
 
+      // Make the API request
       const response = await fetch("http://localhost:5000/predict", {
         method: "POST",
         headers: {
@@ -463,15 +465,29 @@ const PropertyPricePredictor = () => {
         throw new Error(errorData.error || "Failed to fetch prediction");
       }
 
+      // Parse the response
       const data = await response.json();
+
+      // Calculate total price range
+      const pricePerSqFt = data.price_per_sqft;
+      const totalPrice = pricePerSqFt * formData.size;
+      const minPrice = formData.size * (pricePerSqFt - 80.95);
+      const maxPrice = formData.size * (pricePerSqFt + 80.95);
+
+      // Update states
       setPrediction({
-        pricePerSqFt: data.price_per_sqft,
-        totalPrice: data.price_per_sqft * formData.size,
+        pricePerSqFt: pricePerSqFt,
+        totalPrice: totalPrice,
+      });
+      setTotalPriceRange({
+        min: minPrice,
+        max: maxPrice,
       });
     } catch (error) {
       console.error("Error:", error);
       setError(error.message);
       setPrediction(null);
+      setTotalPriceRange(null); // Clear price range on error
     }
   };
 
@@ -750,10 +766,44 @@ const PropertyPricePredictor = () => {
                     </p>
                   </div>
                 </div>
+                {totalPriceRange && (
+                  <div className="mt-4 p-4 bg-yellow-100 text-yellow-800 rounded-lg">
+                    <p className="text-sm font-medium">
+                      Note: This predictor is approximately{" "}
+                      <strong>60% accurate</strong>. The actual price can vary
+                      between:
+                    </p>
+                    <ul className="mt-2 list-disc list-inside">
+                      <li>
+                        Minimum:{" "}
+                        <strong>
+                          RM{" "}
+                          {totalPriceRange.min.toLocaleString(undefined, {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                          })}
+                        </strong>
+                      </li>
+                      <li>
+                        Maximum:{" "}
+                        <strong>
+                          RM{" "}
+                          {totalPriceRange.max.toLocaleString(undefined, {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                          })}
+                        </strong>
+                      </li>
+                    </ul>
+                    <p className="mt-2">
+                      Please consider these variations when interpreting the
+                      results.
+                    </p>
+                  </div>
+                )}
               </div>
             )}
           </CardContent>
-          ;
         </Card>
       </div>
     </div>
