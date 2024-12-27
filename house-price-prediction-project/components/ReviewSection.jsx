@@ -15,16 +15,16 @@ const ReviewsSection = () => {
 
   const reviews = [
     {
-      name: "Jane Doe",
+      name: "Kannan",
       title: "First-time Homebuyer",
       review:
-        "PropertySigma made my home search so easy! The data was incredibly helpful and accurate. The market analysis tools helped me understand pricing in different neighborhoods, and the mortgage calculator was a lifesaver. I couldn't ask for a better experience!",
+        "HomePricePro made my home search so easy! The data was incredibly helpful and accurate. The market analysis tools helped me understand pricing in different neighborhoods, and the mortgage calculator was a lifesaver. I couldn't ask for a better experience!",
       rating: 5,
       date: "March 2024",
       location: "San Francisco, CA",
     },
     {
-      name: "John Smith",
+      name: "Ughaswari",
       title: "Real Estate Investor",
       review:
         "The insights and tools provided are top-notch. I found exactly what I needed, and the market analytics helped me make confident decisions. The ROI calculator and investment analysis features are particularly impressive. I've used this platform for multiple properties now.",
@@ -33,10 +33,10 @@ const ReviewsSection = () => {
       location: "Austin, TX",
     },
     {
-      name: "Alex Johnson",
+      name: "Gundu",
       title: "Property Seller",
       review:
-        "Amazing platform! PropertySigma made selling my home straightforward and stress-free. The comparative market analysis was spot-on, helping me price my property correctly. I particularly loved the professional photography services and virtual tour features.",
+        "Amazing platform! HomePricePro made selling my home straightforward and stress-free. The comparative market analysis was spot-on, helping me price my property correctly. I particularly loved the professional photography services and virtual tour features.",
       rating: 5,
       date: "March 2024",
       location: "Seattle, WA",
@@ -85,7 +85,7 @@ const ReviewsSection = () => {
           data-aos="fade-up"
         >
           Don't just take our word for it. See what our valued customers have to
-          say about their experience with PropertySigma.
+          say about their experience with HomePricePro.
         </p>
 
         <div

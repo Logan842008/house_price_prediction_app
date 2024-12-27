@@ -65,7 +65,7 @@ const PurposeSection = () => {
           className="text-2xl text-gray-600 max-w-4xl text-center mx-auto mb-16 leading-relaxed"
           data-aos="fade-up"
         >
-          At <span className="text-orange-500 font-bold">PropertySigma</span>,
+          At <span className="text-orange-500 font-bold">HomePricePro</span>,
           our goal is to empower buyers and sellers by providing comprehensive
           tools, accurate data, and insights that simplify real estate
           transactions and decision-making processes.

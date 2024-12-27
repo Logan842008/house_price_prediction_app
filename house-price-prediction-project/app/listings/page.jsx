@@ -164,7 +164,7 @@ function Listings() {
   const states = [...new Set(fullData.map((item) => item.State))];
 
   return (
-    <div className="relative min-h-screen bg-gray-50 pt-14">
+    <div className="relative min-h-screen bg-gray-100 pt-14">
       <div className="container mx-auto p-6">
         <h1 className="text-6xl font-bold text-center text-gray-800 mb-8">
           Property Listings

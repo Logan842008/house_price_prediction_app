@@ -25,10 +25,10 @@ const Header = () => {
               className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
       text-gray-800"
             >
-              <span className="text-3xl text-orange-600 mr-1 pt-2">
+              <span className="text-3xl text-orange-600 mr-1 pt-2 align-baseline">
                 <ion-icon name="home"></ion-icon>
               </span>
-              PropertySigma
+              HomePricePro
             </div>
           </Link>
 

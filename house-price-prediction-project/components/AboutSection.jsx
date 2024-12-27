@@ -49,7 +49,7 @@ const AboutSection = () => {
           className="text-2xl text-gray-600 max-w-4xl text-center mx-auto mb-16 leading-relaxed"
           data-aos="fade-up"
         >
-          At <span className="text-orange-500 font-bold">PropertySigma</span>,
+          At <span className="text-orange-500 font-bold">HomePricePro</span>,
           we connect buyers, sellers, and real estate professionals with a
           seamless and innovative platform. Our focus is to make property
           transactions transparent, efficient, and accessible for everyone.
@@ -69,7 +69,7 @@ const AboutSection = () => {
             </h3>
             <p className="text-lg text-gray-600 leading-relaxed">
               A vibrant community of real estate professionals and users powers
-              PropertySigma. We foster collaboration and innovation in every
+              HomePricePro. We foster collaboration and innovation in every
               step of the journey, ensuring everyone benefits from shared
               knowledge and experiences.
             </p>
