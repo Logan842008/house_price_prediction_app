@@ -423,6 +423,26 @@ const PropertyPricePredictor = () => {
 
   const handleSubmit = async () => {
     try {
+      // Validation: Check for empty fields
+      const newErrors = {};
+      if (!formData.District) newErrors.District = "District is required.";
+      if (!formData["House Type"])
+        newErrors["House Type"] = "House Type is required.";
+      if (!formData.Tenure) newErrors.Tenure = "Tenure is required.";
+      if (!formData["Furnished Type"])
+        newErrors["Furnished Type"] = "Furnished Type is required.";
+      if (!formData.Bedrooms) newErrors.Bedrooms = "Bedrooms are required.";
+      if (!formData.Bathrooms) newErrors.Bathrooms = "Bathrooms are required.";
+      if (!formData["Car Slots"])
+        newErrors["Car Slots"] = "Car Slots are required.";
+      if (!formData.size) newErrors.size = "Size is required.";
+
+      // If there are validation errors, update state and stop submission
+      if (Object.keys(newErrors).length > 0) {
+        setError(newErrors);
+        return;
+      }
+
       // Reset error state
       setError(null);
 
@@ -485,7 +505,7 @@ const PropertyPricePredictor = () => {
       });
     } catch (error) {
       console.error("Error:", error);
-      setError(error.message);
+      setError({ general: error.message });
       setPrediction(null);
       setTotalPriceRange(null); // Clear price range on error
     }
